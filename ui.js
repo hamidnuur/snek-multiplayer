@@ -9,7 +9,7 @@ const beginCommandMode = function() {
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
-  return stdin;
+  return handleUserInput;
 }
 
 const send = function(msg) {
@@ -57,6 +57,6 @@ const run = function(connection) {
   const stdin = beginCommandMode();
   conn = connection;
   stdin.on('data', handleUserInput);
-} 
+}
 
 module.exports = { run };
